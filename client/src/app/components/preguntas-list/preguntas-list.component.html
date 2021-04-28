@@ -1,0 +1,84 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="idPregunta">
+      <th mat-header-cell *matHeaderCellDef> idPregunta </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPregunta}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Pregunta">
+      <th mat-header-cell *matHeaderCellDef> Pregunta </th>
+      <td mat-cell *matCellDef="let element"> {{element.Pregunta}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre Encuesta </th>
+        <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actionsboton">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element"> 
+
+            <button type="button" class="btn btn-primary" (click)="addPreg()">
+                <span class="material-icons">
+                    add
+                    </span>
+            </button>
+
+           <button type="button" class="btn btn-warning" [routerLink]="['/pregunta_edit', element.idPregunta]">
+                <span class="material-icons">
+                    edit
+                    </span>
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="eliminarPregunta(element.idPregunta)">
+                <span class="material-icons">
+                    delete
+                    </span>
+            </button>
+
+        </td>
+
+      </ng-container>
+
+      
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+<mat-card> 
+
+
+<!-- 
+    <div class="form-group">
+        <ng-container *ngIf="tipo_save == 1"> 
+            <label class="control-label">
+                {{idcategoria}}
+            </label>
+        </ng-container>
+
+        <input type="text" name="ncategoria" [(ngModel)]="ncategoria" placeholder="Categoria" class="form-control" required>
+        <hr>
+        <ng-container *ngIf="tipo_save == 0"> 
+            <button type="button" class="btn btn-primary" (click)="saveCategoria()">
+                Guardar
+            </button>
+        </ng-container>
+
+        <ng-container *ngIf="tipo_save == 1"> 
+            <button type="button" class="btn btn-secondary" (click)="editCate()">
+                Modificar
+            </button>
+            <button type="button" class="btn btn-dark" (click)="cancel()">
+                Cancelar
+            </button>
+        </ng-container>
+    </div> -->
+
+</mat-card>

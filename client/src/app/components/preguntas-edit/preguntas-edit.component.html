@@ -1,0 +1,140 @@
+<!--<div class="col-md-4 offset-md-4">-->
+    <div class="col-md-10  offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                Editar Pregunta
+            </div>
+            
+          <div class="card-body">
+            <form action="">
+
+            <div class="card-header">
+                idPregunta:    {{pre_ob.idPregunta}}
+            </div> 
+
+            <div class="form-group">
+                <label class="control-label">
+                    Encuesta
+                </label>
+                <select class="form-control" name="idEncuesta" [(ngModel)]="pre_ob.idEncuesta" placeholder="Encuesta" >
+                <option *ngFor="let enc of encuentas" [value]=enc.idEncuesta >{{enc.Nombre}}</option>
+                </select>
+            </div>
+
+              <div class="form-group">
+                <input type="text" name="Pregunta" [(ngModel)]="pre_ob.Pregunta" placeholder="Pregunta" class="form-control" required autofocus>
+              </div>
+    
+  
+
+    
+    
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+      <div class="col-md-10  offset-md-2">
+        <div class="card">
+
+
+             <!-- ------------ -->
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    
+
+                <ng-container matColumnDef="Respuesta">
+                    <th mat-header-cell *matHeaderCellDef> Respuesta </th>
+                     <td mat-cell *matCellDef="let element">
+                          <input type="text" name="Respuesta" [(ngModel)]="element.Respuesta" placeholder="Respuesta" class="form-control" required autofocus disabled>
+                      </td>
+                  </ng-container>
+
+                <ng-container matColumnDef="Letra">
+                    <th mat-header-cell *matHeaderCellDef> Letra </th>
+                    <td mat-cell *matCellDef="let element">
+                         <input type="text" name="Letra" [(ngModel)]="element.Letra" placeholder="Letra" class="form-control" required autofocus disabled>
+                     </td>
+                </ng-container>
+
+                <ng-container matColumnDef="idcorrecta">
+                    <th mat-header-cell *matHeaderCellDef> Correcta </th>
+                    <td mat-cell *matCellDef="let element">
+                         <input type="checkbox" value = true name="idcorrecta" [(ngModel)]="element.idcorrecta" checked disabled>
+                     </td>
+                </ng-container>
+
+                
+
+
+
+            
+                <ng-container matColumnDef="actionsboton">
+
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let element"> 
+                        <button type="button" class="btn btn-success" (click)="RespuCorrecta(element)">
+                            <span class="material-icons">
+                                done
+                                </span>
+                        </button>
+
+                        <button type="button" class="btn btn-light" (click)="quitarCorrecta(element)">
+                            <span class="material-icons">
+                                clear
+                                </span>
+                        </button>
+
+                        <button type="button" class="btn btn-danger" (click)="quitarRes(element)">
+                            <span class="material-icons">
+                                delete
+                                </span>
+                        </button>
+                    </td>
+
+            
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table> 
+
+             <!-- ------------ -->
+            
+          <div class="card-body">
+            <form action="">
+            <div class="form-group">
+
+                <div class="form-group">
+                    <input type="text" name="Respuesta_insert" [(ngModel)]="Respuesta_insert" placeholder="Respuesta" class="form-control" required autofocus>
+
+                    <input type="text" name="Letra_insert" [(ngModel)]="Letra_insert" placeholder="Letra" class="form-control" required autofocus>
+                </div>
+   
+                </div>
+
+            <!--</div>-->
+    
+
+            <hr>
+            
+    
+              <button class="btn btn-primary btn-block" (click)="inserRespu()">
+                Agregar Respuesta
+              </button>
+            </form>
+    
+             
+            <hr>
+            <button class="btn btn-success btn-block" (click)="ActualizarRespu()">
+              Actualizar
+            </button>
+
+            
+    
+          </div>
+        </div>
+      </div>
+    

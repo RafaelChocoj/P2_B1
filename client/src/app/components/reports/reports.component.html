@@ -1,0 +1,514 @@
+<mat-card> 
+
+    <hr> 
+    <h2 *ngIf="rep_ac == 'rep1'">Reporte 1</h2>
+    <h4 *ngIf="rep_ac == 'rep1'">Desplegar cada profesional, y el número de inventos que tiene asignados ordenados de mayor a menor</h4>
+
+    <h2 *ngIf="rep_ac == 'rep2'">Reporte 2</h2>
+    <h4 *ngIf="rep_ac == 'rep2'">Desplegar los países de cada continente y el número de preguntas que han contestado de 
+        cualquier encuesta.Si hay países que no han contestado ninguna encuesta, igual debe aparecer 
+        su nombre el la lista</h4>
+
+
+    <h2 *ngIf="rep_ac == 'rep3'">Reporte 3</h2>
+    <h4 *ngIf="rep_ac == 'rep3'">Desplegar todos los países que no tengan ningún inventor y que no tengan ninguna 
+        frontera con otro país ordenados por su área.</h4>
+
+    <h2 *ngIf="rep_ac == 'rep4'">Reporte 4</h2>
+    <h4 *ngIf="rep_ac == 'rep4'">Desplegar el nombre de cada jefe seguido de todos sus subalternos, para todos 
+        los profesionales ordenados por el jefe alfabéticamente.</h4>
+    
+    <h2 *ngIf="rep_ac == 'rep5'">Reporte 5</h2>
+    <h4 *ngIf="rep_ac == 'rep5'">Desplegar todos los profesionales, y su salario cuyo salario es mayor 
+        al promedio del salario de los profesionales en su misma área.</h4>
+
+    <h2 *ngIf="rep_ac == 'rep6'">Reporte 6</h2>
+    <h4 *ngIf="rep_ac == 'rep6'">Desplegar los nombres de los países que han contestado encuestas, 
+        ordenados del país que más aciertos ha tenido hasta el que menos 
+        aciertos ha tenido.</h4>
+
+    <h2 *ngIf="rep_ac == 'rep7'">Reporte 7</h2>
+    <h4 *ngIf="rep_ac == 'rep7'">Desplegar los inventos documentados por todos
+        los profesionales expertos en Óptica.</h4>
+
+    <h2 *ngIf="rep_ac == 'rep8'">Reporte 8</h2>
+    <h4 *ngIf="rep_ac == 'rep8'">Desplegar la suma del área de todos 
+        los países agrupados por la inicial de su nombre.</h4>
+
+    <h2 *ngIf="rep_ac == 'rep9'">Reporte 9</h2>
+    <h4 *ngIf="rep_ac == 'rep9'">Desplegar todos los inventores y sus inventos cuyo 
+        nombre del inventor inicie con las letras BE.</h4>   
+        
+    <h2 *ngIf="rep_ac == 'rep10'">Reporte 10</h2>
+    <h4 *ngIf="rep_ac == 'rep10'">Desplegar el nombre de todos los inventores que Inicien 
+        con B y terminen con r o con n que tengan inventos del siglo 19</h4> 
+
+    <h2 *ngIf="rep_ac == 'rep11'">Reporte 11</h2>
+    <h4 *ngIf="rep_ac == 'rep11'">Desplegar el nombre del país y el área de todos los países que tienen 
+        mas de siete fronteras ordenarlos por el de mayor área</h4>  
+    
+    <h2 *ngIf="rep_ac == 'rep12'">Reporte 12</h2>
+    <h4 *ngIf="rep_ac == 'rep12'">Desplegar todos los inventos de cuatro letras que inicien con L</h4>  
+
+    <h2 *ngIf="rep_ac == 'rep13'">Reporte 13</h2>
+    <h4 *ngIf="rep_ac == 'rep13'">Desplegar el nombre del profesional, su salario, su comisión y 
+        el total de salario (sueldo mas comisión) de todos los profesionales 
+        con comisión mayor que el 25% de su salario</h4>  
+    
+    <h2 *ngIf="rep_ac == 'rep14'">Reporte 14</h2>
+    <h4 *ngIf="rep_ac == 'rep14'">Desplegar cada encuesta y el número de países que las 
+        han contestado, ordenadas de mayor a menor.</h4>  
+
+    <h2 *ngIf="rep_ac == 'rep15'">Reporte 15</h2>
+    <h4 *ngIf="rep_ac == 'rep15'">Desplegar los países cuya población sea mayor a 
+        la población de los países centroamericanos juntos</h4>  
+    
+    <h2 *ngIf="rep_ac == 'rep16'">Reporte 16</h2>
+    <h4 *ngIf="rep_ac == 'rep16'">Desplegar todos los Jefes de cada profesional que no este 
+        en el mismo departamento que el del profesional que atiende 
+        al inventor Pasteur</h4> 
+
+    <h2 *ngIf="rep_ac == 'rep17'">Reporte 17</h2>
+    <h4 *ngIf="rep_ac == 'rep17'">Desplegar el nombre de todos los inventos inventados el mismo 
+        año que BENZ invento algún invento</h4> 
+
+    <h2 *ngIf="rep_ac == 'rep18'">Reporte 18</h2>
+    <h4 *ngIf="rep_ac == 'rep18'">Desplegar los nombres y el número de habitantes de todas las 
+        islas que tiene un área mayor o igual al área de Japón</h4> 
+
+    <h2 *ngIf="rep_ac == 'rep19'">Reporte 19</h2>
+    <h4 *ngIf="rep_ac == 'rep19'">Desplegar todos los países con el nombre de cada país con
+        el cual tiene una frontera</h4> 
+
+    <h2 *ngIf="rep_ac == 'rep20'">Reporte 20</h2>
+    <h4 *ngIf="rep_ac == 'rep20'">Desplegar el nombre del profesional su salario y su comisión de 
+        los empleados cuyo salario es mayor que el doble de su comisión</h4> 
+
+    <hr>
+    
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+matSort>
+
+<!-- #reporte 1 -->
+<ng-container *ngIf="rep_ac == 'rep1'">
+    <ng-container matColumnDef="idProfesional">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idProfesional </th>
+      <td mat-cell *matCellDef="let element"> {{element.idProfesional}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="cant_inven">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> cant_inven </th>
+        <td mat-cell *matCellDef="let element"> {{element.cant_inven}} </td>
+      </ng-container>
+  
+    </ng-container>
+
+    <!-- #reporte 2 -->
+    <ng-container *ngIf="rep_ac == 'rep2'">
+        <ng-container matColumnDef="idRegion">
+          <th mat-header-cell *matHeaderCellDef> idRegion </th>
+          <td mat-cell *matCellDef="let element"> {{element.idRegion}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Region </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>  
+        
+        <ng-container matColumnDef="idPais">
+            <th mat-header-cell *matHeaderCellDef  mat-sort-header> idPais </th>
+            <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="pais">
+            <th mat-header-cell *matHeaderCellDef  mat-sort-header> Pais </th>
+            <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="Cant_res">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad Respuestas </th>
+            <td mat-cell *matCellDef="let element"> {{element.Cant_res}} </td>
+          </ng-container>
+      
+        </ng-container>
+
+<!-- #reporte 3 -->
+<ng-container *ngIf="rep_ac == 'rep3'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="Area">
+        <th mat-header-cell *matHeaderCellDef> Area </th>
+        <td mat-cell *matCellDef="let element"> {{element.Area}} </td>
+      </ng-container>
+  
+    </ng-container>
+
+<!-- #reporte 4 -->
+<ng-container *ngIf="rep_ac == 'rep4'">
+    <ng-container matColumnDef="ProfJefe">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ProfJefe </th>
+      <td mat-cell *matCellDef="let element"> {{element.ProfJefe}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ProfSubJefe">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ProfSubJefe </th>
+      <td mat-cell *matCellDef="let element"> {{element.ProfSubJefe}} </td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="ProfSubAlterno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ProfSubAlterno </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProfSubAlterno}} </td>
+      </ng-container>
+
+</ng-container>
+
+<!-- #reporte 5 -->
+<ng-container *ngIf="rep_ac == 'rep5'">
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Profesional </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="idArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idArea </th>
+      <td mat-cell *matCellDef="let element"> {{element.idArea}} </td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="areanombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Area </th>
+        <td mat-cell *matCellDef="let element"> {{element.areanombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Salario">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Salario </th>
+        <td mat-cell *matCellDef="let element"> {{element.Salario}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prom_ar">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> prom_ar </th>
+        <td mat-cell *matCellDef="let element"> {{element.prom_ar}} </td>
+    </ng-container>
+
+</ng-container>
+
+<!-- #reporte 6 -->
+<ng-container *ngIf="rep_ac == 'rep6'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="res_correctas">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> res_correctas </th>
+        <td mat-cell *matCellDef="let element"> {{element.res_correctas}} </td>
+      </ng-container>
+
+</ng-container>
+
+<!-- #reporte 7 -->
+<ng-container *ngIf="rep_ac == 'rep7'">
+    <ng-container matColumnDef="idInvento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idInvento </th>
+      <td mat-cell *matCellDef="let element"> {{element.idInvento}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>  
+
+</ng-container>
+
+<!-- #reporte 8 -->
+<ng-container *ngIf="rep_ac == 'rep8'">
+    <ng-container matColumnDef="inicial_P">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> inicial_P </th>
+      <td mat-cell *matCellDef="let element"> {{element.inicial_P}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Suma_Areas">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Suma_Areas </th>
+      <td mat-cell *matCellDef="let element"> {{element.Suma_Areas}} </td>
+    </ng-container>  
+
+</ng-container>
+
+<!-- #reporte 9 -->
+<ng-container *ngIf="rep_ac == 'rep9'">
+    <ng-container matColumnDef="inventor_n">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre inventor </th>
+      <td mat-cell *matCellDef="let element"> {{element.inventor_n}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="invento_n">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre invento </th>
+      <td mat-cell *matCellDef="let element"> {{element.invento_n}} </td>
+    </ng-container>  
+
+</ng-container>
+
+<!-- #reporte 10 -->
+<ng-container *ngIf="rep_ac == 'rep10'">
+    <ng-container matColumnDef="inventor_n">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre inventor </th>
+      <td mat-cell *matCellDef="let element"> {{element.inventor_n}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="AnioInvento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Año Invento </th>
+      <td mat-cell *matCellDef="let element"> {{element.AnioInvento}} </td>
+    </ng-container>  
+
+</ng-container>
+
+<!-- #reporte 11 -->
+<ng-container *ngIf="rep_ac == 'rep11'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container> 
+    
+    <ng-container matColumnDef="Area">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Area </th>
+    <td mat-cell *matCellDef="let element"> {{element.Area}} </td>
+    </ng-container> 
+
+    <ng-container matColumnDef="fronterasn">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero fronteras </th>
+    <td mat-cell *matCellDef="let element"> {{element.fronterasn}} </td>
+    </ng-container> 
+</ng-container>
+
+<!-- #reporte 12 -->
+<ng-container *ngIf="rep_ac == 'rep12'">
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="tamnom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> tamnom </th>
+      <td mat-cell *matCellDef="let element"> {{element.tamnom}} </td>
+    </ng-container>  
+</ng-container>
+
+<!-- #reporte 13 -->
+<ng-container *ngIf="rep_ac == 'rep13'">
+<ng-container matColumnDef="idProfesional">
+    <th mat-header-cell *matHeaderCellDef> idProfesional </th>
+    <td mat-cell *matCellDef="let element"> {{element.idProfesional}} </td>
+</ng-container>
+
+<ng-container matColumnDef="Nombre">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+</ng-container>  
+
+<ng-container matColumnDef="Salario">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header> Salario </th>
+    <td mat-cell *matCellDef="let element"> {{element.Salario}} </td>
+</ng-container>
+
+<ng-container matColumnDef="Comision">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header> Comision </th>
+    <td mat-cell *matCellDef="let element"> {{element.Comision}} </td>
+</ng-container>
+
+<ng-container matColumnDef="Total_salario">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total_salario </th>
+    <td mat-cell *matCellDef="let element"> {{element.Total_salario}} </td>
+</ng-container>
+
+<ng-container matColumnDef="sal25">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> sal25 </th>
+    <td mat-cell *matCellDef="let element"> {{element.sal25}} </td>
+</ng-container>
+</ng-container>
+
+<!-- #reporte 14 -->
+<ng-container *ngIf="rep_ac == 'rep14'">
+    <ng-container matColumnDef="idEncuesta">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idEncuesta </th>
+      <td mat-cell *matCellDef="let element"> {{element.idEncuesta}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="No_Paises">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No_Paises </th>
+      <td mat-cell *matCellDef="let element"> {{element.No_Paises}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 15 -->
+<ng-container *ngIf="rep_ac == 'rep15'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="Poblacion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Poblacion </th>
+      <td mat-cell *matCellDef="let element"> {{element.Poblacion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Poblacion_Centroamer">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Poblacion_Centroamer </th>
+        <td mat-cell *matCellDef="let element"> {{element.Poblacion_Centroamer}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 16 -->
+<ng-container *ngIf="rep_ac == 'rep16'">
+    <ng-container matColumnDef="JefeGen">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> JefeGen </th>
+      <td mat-cell *matCellDef="let element"> {{element.JefeGen}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="SubJefe">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> SubJefe </th>
+      <td mat-cell *matCellDef="let element"> {{element.SubJefe}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="Profesional">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Profesional </th>
+      <td mat-cell *matCellDef="let element"> {{element.Profesional}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="depart_area">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Departamento Area </th>
+        <td mat-cell *matCellDef="let element"> {{element.depart_area}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 17 -->
+<ng-container *ngIf="rep_ac == 'rep17'">
+    <ng-container matColumnDef="idInvento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idInvento </th>
+      <td mat-cell *matCellDef="let element"> {{element.idInvento}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="AnioInvento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Año Invento </th>
+      <td mat-cell *matCellDef="let element"> {{element.AnioInvento}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 18 -->
+<ng-container *ngIf="rep_ac == 'rep18'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="Poblacion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Poblacion </th>
+      <td mat-cell *matCellDef="let element"> {{element.Poblacion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Area">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Area </th>
+        <td mat-cell *matCellDef="let element"> {{element.Area}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="JaponArea">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Area Japon </th>
+        <td mat-cell *matCellDef="let element"> {{element.JaponArea}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 19 -->
+<ng-container *ngIf="rep_ac == 'rep19'">
+    <ng-container matColumnDef="idPais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPais </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPais}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pais </th>
+      <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="idPaisFrontera">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idPaisFrontera </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPaisFrontera}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="PaisFrontera">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pais Frontera </th>
+        <td mat-cell *matCellDef="let element"> {{element.PaisFrontera}} </td>
+    </ng-container>
+</ng-container>
+
+<!-- #reporte 20 -->
+<ng-container *ngIf="rep_ac == 'rep20'">
+    <ng-container matColumnDef="idProfesional">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idProfesional </th>
+      <td mat-cell *matCellDef="let element"> {{element.idProfesional}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="Salario">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Salario </th>
+      <td mat-cell *matCellDef="let element"> {{element.Salario}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Comision">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comision </th>
+        <td mat-cell *matCellDef="let element"> {{element.Comision}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="doble_comi">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 2*Comision </th>
+        <td mat-cell *matCellDef="let element"> {{element.doble_comi}} </td>
+    </ng-container>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

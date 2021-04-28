@@ -1,0 +1,21 @@
+ng new client --routing
+
+ng g c components/prin
+ng g c components/reports
+
+ng g c components/paises
+ng g c components/paises-list
+ng g c components/paises-edit
+
+ng g c components/preguntas
+ng g c components/preguntas-list
+ng g c components/preguntas-edit
+
+ng g c components/inventos-list
+ng g c components/inventos-edit
+
+ng g s services/reportes
+ng g s services/catalogos
+
+en index pegar
+agregar boostrap

@@ -1,0 +1,56 @@
+iniciar server con typescrip
+=====
+npm init --yes
+/*morgan para ver en consala*/
+npm install express morgan promise-mysql cors 
+
+instalar typescrip
+====
+npm install -g typescript
+
+inicar tsc
+tsc --init
+
+configuracion en tsconfig
+
+configuracion en package.json
+
+"scripts": {
+    "build": "tsc -w",
+    "dev": "nodemon build/index.js"
+  },
+
+para ejecutar comando
+npm run build
+
+dependencia de desarrollo
+npm i nodemon -D
+
+nodmon /*es para que se actuliza, escuchando los cambios*/
+npm run dev
+
+npm i @types/express -D
+
+instalar mornga y cors
+npm i @types/morgan @types/cors -D
+
+	npm i promise-mysql@3.3.2
+	npm install --save mysql2
+
+---
+
+
+
+npm i express
+
+npm i nodemon -D
+
+
+
+librerias para oracle
+instat client
+
+/usr/lib/jvm/jdk-11.0.8
+
+/*iniciar postman*/
+/opt/Postman/Postman

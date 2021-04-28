@@ -1,0 +1,187 @@
+<!--<div class="col-md-4 offset-md-4">-->
+  <div class="col-md-10  offset-md-2">
+    <div class="card">
+        <div class="card-header">
+            Nuevo Pais
+        </div>
+        
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <input type="text" name="pais" [(ngModel)]="pais" placeholder="Pais" class="form-control" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="Capital" [(ngModel)]="Capital" placeholder="Capital" class="form-control" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">
+                Población
+            </label>
+            <input type="number" name="Poblacion" [(ngModel)]="Poblacion" placeholder="Poblacion" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">
+                Area
+            </label>
+            <input type="number" name="Area" [(ngModel)]="Area" placeholder="Area" class="form-control" required>
+          </div>
+
+        <div class="form-group">
+        <label class="control-label">
+            Region
+        </label>
+        <select class="form-control" name="idRegion" [(ngModel)]="idRegion" placeholder="Region" >
+        <option *ngFor="let reg of regiones" [value]=reg.idRegion >{{reg.nombre}}</option>
+        </select>
+    
+        </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+    
+      <div class="col-md-10  offset-md-2">
+        <div class="card">
+
+
+             <!-- ------------ -->
+             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--  <ng-container matColumnDef="idPaisFrontera">
+                  <th mat-header-cell *matHeaderCellDef> idPaisFrontera </th>
+                  <td mat-cell *matCellDef="let element"> {{element.idPaisFrontera}} </td>
+                </ng-container>-->
+
+                <ng-container matColumnDef="idPaisFrontera">
+                    <th mat-header-cell *matHeaderCellDef> Frontera </th>
+                    <td mat-cell *matCellDef="let element">
+                        <select class="form-control" name="idPaisFrontera" [(ngModel)]="element.idPaisFrontera" placeholder="idPaisFrontera" >
+                            <option *ngFor="let pai of pais_fron" [value]=pai.idPais >{{pai.pais}}</option>
+                        </select>
+                    </td>
+                </ng-container>
+
+
+                
+
+                <ng-container matColumnDef="Norte">
+                  <th mat-header-cell *matHeaderCellDef> Norte </th>
+                   <td mat-cell *matCellDef="let element">
+                        <input type="checkbox" value = true name="nort" [(ngModel)]="element.Norte" checked>
+                    </td>
+                
+                </ng-container>
+
+                
+            
+                <ng-container matColumnDef="Sur">
+                    <th mat-header-cell *matHeaderCellDef> Sur </th>
+                    <td mat-cell *matCellDef="let element"> 
+                        <input type="checkbox" value = true name="sur" [(ngModel)]="element.Sur" checked>
+                    </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Este">
+                    <th mat-header-cell *matHeaderCellDef> Este </th>
+                    <td mat-cell *matCellDef="let element">
+                        <input type="checkbox" value = true name="este" [(ngModel)]="element.Este" checked>
+                    </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Oeste">
+                    <th mat-header-cell *matHeaderCellDef> Oeste </th>
+                    <td mat-cell *matCellDef="let element">
+                        <input type="checkbox" value = true name="oeste" [(ngModel)]="element.Oeste" checked>
+                    </td>
+                </ng-container>
+            
+            
+                <ng-container matColumnDef="actionsboton">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let element"> 
+            
+                        <button type="button" class="btn btn-danger" (click)="quitarFron(element)">
+                            <span class="material-icons">
+                                delete
+                                </span>
+                        </button>
+            
+                    </td>
+            
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+             <!-- ------------ -->
+            
+          <div class="card-body">
+            <form action="">
+            <div class="form-group">
+   
+                <label class="control-label">
+                    Pais Frontera
+                </label>
+                <select class="form-control" name="fron_insert" [(ngModel)]="fron_insert" placeholder="PaisFrontera" >
+                <option *ngFor="let pai of pais_fron" [value]=pai.idPais >{{pai.pais}}</option>
+                </select>
+
+                 <!--
+                <label class="btn btn-secondary">
+                    <input type="checkbox" value = 'X' name="Norte_insert" [(ngModel)]="Norte_insert" checked> Norte
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="checkbox" value = 'X' name="Sur_insert" [(ngModel)]="Sur_insert"> Sur
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="checkbox" value = 'X' name="Este_insert" [(ngModel)]="Este_insert"> Este
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="checkbox" value = 'X' name="Oeste_insert" [(ngModel)]="Oeste_insert"> Oeste
+                </label>
+                  -->
+                </div>
+
+            <!--</div>-->
+    
+             <!-- ------------ 
+              <div class="col-20">
+                <div class="row">
+    
+                  <div *ngFor="let fro of front_list" class="col-4">
+                  <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    {{fro.idPaisFrontera}}
+                    <button class="btn btn-danger" (click)="quitarFron(fro)">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+              
+            <hr>
+            
+    
+              <button class="btn btn-primary btn-block" (click)="inserFront()">
+                Agregar Frontera
+              </button>
+            </form>
+    
+            <!--<hr>-->
+            <hr>
+            <button class="btn btn-success btn-block" (click)="savePais()">
+              Guardar
+            </button>
+    
+          </div>
+        </div>
+      </div>
+    

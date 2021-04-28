@@ -1,0 +1,119 @@
+<!--<div class="col-md-4 offset-md-4">-->
+    <div class="col-md-10  offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                Nueva Pregunta
+            </div>
+            
+          <div class="card-body">
+            <form action="">
+
+            <div class="form-group">
+                <label class="control-label">
+                    Encuesta
+                </label>
+                <select class="form-control" name="idEncuesta" [(ngModel)]="idEncuesta" placeholder="Encuesta" >
+                <option *ngFor="let enc of encuentas" [value]=enc.idEncuesta >{{enc.Nombre}}</option>
+                </select>
+            </div>
+
+              <div class="form-group">
+                <input type="text" name="Pregunta" [(ngModel)]="Pregunta" placeholder="Pregunta" class="form-control" required autofocus>
+              </div>
+    
+  
+
+    
+    
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+      <div class="col-md-10  offset-md-2">
+        <div class="card">
+
+
+             <!-- ------------ -->
+             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--  <ng-container matColumnDef="idPaisFrontera">
+                  <th mat-header-cell *matHeaderCellDef> idPaisFrontera </th>
+                  <td mat-cell *matCellDef="let element"> {{element.idPaisFrontera}} </td>
+                </ng-container>-->
+
+                <ng-container matColumnDef="Respuesta">
+                    <th mat-header-cell *matHeaderCellDef> Respuesta </th>
+                     <td mat-cell *matCellDef="let element">
+                          <input type="text" name="Respuesta" [(ngModel)]="element.Respuesta" placeholder="Respuesta" class="form-control" required autofocus>
+                      </td>
+                  </ng-container>
+
+                <ng-container matColumnDef="Letra">
+                    <th mat-header-cell *matHeaderCellDef> Letra </th>
+                    <td mat-cell *matCellDef="let element">
+                         <input type="text" name="Letra" [(ngModel)]="element.Letra" placeholder="Letra" class="form-control" required autofocus>
+                     </td>
+                </ng-container>
+
+
+
+        
+            
+            
+                <ng-container matColumnDef="actionsboton">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let element"> 
+            
+                        <button type="button" class="btn btn-danger" (click)="quitarRes(element)">
+                            <span class="material-icons">
+                                delete
+                                </span>
+                        </button>
+            
+                    </td>
+            
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+             <!-- ------------ -->
+            
+          <div class="card-body">
+            <form action="">
+            <div class="form-group">
+
+                <div class="form-group">
+                    <input type="text" name="Respuesta_insert" [(ngModel)]="Respuesta_insert" placeholder="Respuesta" class="form-control" required autofocus>
+                </div>
+   
+    
+
+    
+                </div>
+
+            <!--</div>-->
+    
+
+            <hr>
+            
+    
+              <button class="btn btn-primary btn-block" (click)="inserRespu()">
+                Agregar Respuesta
+              </button>
+            </form>
+    
+            <!--<hr>-->
+            <hr>
+            <button class="btn btn-success btn-block" (click)="savePregunta()">
+              Guardar
+            </button>
+    
+          </div>
+        </div>
+      </div>
+    

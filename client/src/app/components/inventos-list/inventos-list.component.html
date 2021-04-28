@@ -1,0 +1,53 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="idInvento">
+      <th mat-header-cell *matHeaderCellDef> idInvento </th>
+      <td mat-cell *matCellDef="let element"> {{element.idInvento}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AnioInvento">
+        <th mat-header-cell *matHeaderCellDef> Año Invento </th>
+        <td mat-cell *matCellDef="let element"> {{element.AnioInvento}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pais">
+        <th mat-header-cell *matHeaderCellDef> pais </th>
+        <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actionsboton">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element"> 
+
+
+           <button type="button" class="btn btn-warning" [routerLink]="['/invento_edit', element.idInvento]">
+                <span class="material-icons">
+                    edit
+                    </span>
+            </button>
+
+
+        </td>
+
+      </ng-container>
+
+      
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+<mat-card> 
+
+
+</mat-card>

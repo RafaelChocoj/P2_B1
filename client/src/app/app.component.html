@@ -1,0 +1,145 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  
+  <div class="container">
+    <a class="navbar-brand" routerLink="/principal">Proyecto2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+
+  
+    <ul class="navbar-nav mr-auto">
+
+ 
+    
+      <!--  
+      <ng-container *ngIf="!authService.Logueado(); else pefil">
+      </ng-container>-->
+
+      
+      <!--  <ng-template #pefil>-->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/principal" routerLinkActive="active">Home</a>
+        </li>
+
+        <!--<li class="nav-item">
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">Perfil</a>
+        </li>-->
+
+        
+        <!--<ng-container *ngIf="tipo_us=='A'"> -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/paislist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Paises</a>
+          </li>
+
+          <li class="nav-item">
+          <a class="nav-link" routerLink="/preguntalist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Preguntas</a>
+        </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/inventolist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inventos</a>
+          </li>
+      
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/reportes/rep1">Reporte 1</a>
+            <a class="dropdown-item" href="/reportes/rep2">Reporte 2</a>
+            <a class="dropdown-item" href="/reportes/rep3">Reporte 3</a>
+            <a class="dropdown-item" href="/reportes/rep4">Reporte 4</a>
+            <a class="dropdown-item" href="/reportes/rep5">Reporte 5</a>
+            <a class="dropdown-item" href="/reportes/rep6">Reporte 6</a>
+            <a class="dropdown-item" href="/reportes/rep7">Reporte 7</a>
+            <a class="dropdown-item" href="/reportes/rep8">Reporte 8</a>
+            <a class="dropdown-item" href="/reportes/rep9">Reporte 9</a>
+            <a class="dropdown-item" href="/reportes/rep10">Reporte 10</a>
+
+            <a class="dropdown-item" href="/reportes/rep11">Reporte 11</a>
+            <a class="dropdown-item" href="/reportes/rep12">Reporte 12</a>
+            <a class="dropdown-item" href="/reportes/rep13">Reporte 13</a>
+            <a class="dropdown-item" href="/reportes/rep14">Reporte 14</a>
+            <a class="dropdown-item" href="/reportes/rep15">Reporte 15</a>
+            <a class="dropdown-item" href="/reportes/rep16">Reporte 16</a>
+            <a class="dropdown-item" href="/reportes/rep17">Reporte 17</a>
+            <a class="dropdown-item" href="/reportes/rep18">Reporte 18</a>
+            <a class="dropdown-item" href="/reportes/rep19">Reporte 19</a>
+            <a class="dropdown-item" href="/reportes/rep20">Reporte 20</a>
+
+
+          </div>
+        </li>
+
+      <!-- </ng-container>-->
+
+  
+
+        <!--<li class="nav-item">
+          <a class="nav-link" routerLink="/mischats" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mi Chat</a>
+        </li>-->
+
+   
+        
+      <!-- </ng-template>-->
+
+      
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+
+
+      <!--  <ng-container *ngIf="!authService.Logueado(); else salirs">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signup" routerLinkActive="active">New Acount</a>
+        </li>
+      </ng-container>-->
+
+      <ng-template #salirs>
+
+        <!--  <button class="btn btn-danger" routerLink="/carrito" >
+          Carrito  <span class="blue">{{products.cant}}</span>
+          <i class="fas fa-shopping-cart">
+          </i>
+      </button>
+
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer;" (click)="authService.CerrarS()">Cerrar Sesión</a>
+        </li>-->
+      </ng-template>
+     
+    </ul>
+
+  </div>
+  </div>
+</nav>
+
+<div class="container rou">
+<br>
+<br>
+  <router-outlet></router-outlet>
+</div>

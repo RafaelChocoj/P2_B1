@@ -1,0 +1,119 @@
+<!--<div class="col-md-4 offset-md-4">-->
+    <div class="col-md-10  offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                Editar Invento
+            </div>
+            
+          <div class="card-body">
+            <form action="">
+
+            <div class="card-header">
+                idInvento:    {{inven_ob.idInvento}}
+            </div> 
+
+            <div class="form-group">
+                <input type="text" name="Nombre" [(ngModel)]="inven_ob.Nombre" placeholder="Nombre" class="form-control" required autofocus>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">
+                    Año Invento
+                </label>
+                <input type="number" name="AnioInvento" [(ngModel)]="inven_ob.AnioInvento" placeholder="AnioInvento" class="form-control" required>
+              </div>
+
+            <div class="form-group">
+                <label class="control-label">
+                    Pais
+                </label>
+                <select class="form-control" name="idPais" [(ngModel)]="inven_ob.idPais" placeholder="idPais" disabled>
+                <option *ngFor="let pai of pais_lis" [value]=pai.idPais >{{pai.pais}}</option>
+                </select>
+            </div>
+
+    
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+      <div class="col-md-10  offset-md-2">
+        <div class="card">
+
+
+          <!-- ------------ -->
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+             <ng-container matColumnDef="idInventor">
+                <th mat-header-cell *matHeaderCellDef> Inventor </th>
+                <td mat-cell *matCellDef="let element">
+                    <select class="form-control" name="idInventor" [(ngModel)]="element.idInventor" placeholder="Inventor" disabled>
+                        <option *ngFor="let intores of inventores" [value]=intores.idInventor>{{intores.Nombre}}</option>
+                    </select>
+                </td>
+            </ng-container>
+
+
+
+        
+        
+            <ng-container matColumnDef="actionsboton">
+                <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                <td mat-cell *matCellDef="let element"> 
+        
+                   <button type="button" class="btn btn-danger" (click)="quitarInventor(element)">
+                        <span class="material-icons">
+                            delete
+                            </span>
+                    </button>
+        
+                </td>
+        
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+         <!-- ------------ -->
+
+            
+         <div class="card-body">
+          <form action="">
+          <div class="form-group">
+ 
+              <label class="control-label">
+                  Inventor
+              </label>
+              <select class="form-control" name="inventor_insert" [(ngModel)]="inventor_insert" placeholder="inventor" >
+                <option *ngFor="let intores of inventores" [value]=intores.idInventor>{{intores.Nombre}}</option>
+              </select>
+
+                
+              </div>
+
+          <!--</div>-->
+  
+            
+          <hr>
+          
+  
+            <button class="btn btn-primary btn-block" (click)="inserInventor()">
+              Agregar Inventor
+            </button>
+  
+          </form>
+
+            <hr>
+            <button class="btn btn-success btn-block" (click)="ActualizarInventor()">
+                Actualizar
+            </button>
+  
+    
+          </div>
+        </div>
+      </div>
+    
