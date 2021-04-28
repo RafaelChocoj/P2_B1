@@ -7,8 +7,10 @@ import { map } from "rxjs/operators";
 })
 export class CatalogosService {
 
-  private URL = 'http://localhost:3000';
-  //private URL = 'http://192.168.0.100:3000';
+  //private URL = 'http://localhost:3000';
+  private URL = 'http://104.198.41.90:3000';
+
+  //////////private URL = 'http://192.168.0.100:3000';
   constructor(private http: HttpClient) { }
 
   headers: HttpHeaders = new HttpHeaders({
