@@ -12,6 +12,7 @@ class catRoutes {
     }
     config() {
         //this.router.post('/addCurso',verifyToken, publicController.winCurso);
+        this.router.post('/Login', CatalogoControllers_1.default.loguin);
         //CRUD de Pais
         this.router.get('/getPaises', CatalogoControllers_1.default.listpais);
         this.router.get('/getRegiones', CatalogoControllers_1.default.regiones);

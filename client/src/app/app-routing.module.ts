@@ -14,12 +14,18 @@ import { PreguntasEditComponent } from "./components/preguntas-edit/preguntas-ed
 
 import { InventosListComponent } from "./components/inventos-list/inventos-list.component";
 import { InventosEditComponent } from "./components/inventos-edit/inventos-edit.component";
+import { LoginComponent} from './components/login/login.component';
 
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/principal',
+  redirectTo: '/login',
   pathMatch: 'full'
+},
+{
+  path: 'login',
+  component: LoginComponent
 },
 {
   path: 'principal',
@@ -41,13 +47,13 @@ const routes: Routes = [{
 
   path: 'pais_edit/:idpai',
   component: PaisesEditComponent//,
-  //canActivate: [AuthGuard, AdminGuard]
+  //canActivate: [AuthGuard]
 }, 
 {
   /*protegida Categorias*/
   path: 'paislist',
-  component: PaisesListComponent//,
-  //canActivate: [AuthGuard, AdminGuard]
+  component: PaisesListComponent,
+  canActivate: [AuthGuard]
 }, 
 {
   path: 'pregunta/add',
@@ -63,8 +69,8 @@ const routes: Routes = [{
 {
   /*protegida Categorias*/
   path: 'preguntalist',
-  component: PreguntasListComponent//,
-  //canActivate: [AuthGuard, AdminGuard]
+  component: PreguntasListComponent,
+  canActivate: [AuthGuard]
 }, 
 {
 
@@ -75,8 +81,8 @@ const routes: Routes = [{
 {
   /*protegida Categorias*/
   path: 'inventolist',
-  component: InventosListComponent//,
-  //canActivate: [AuthGuard, AdminGuard]
+  component: InventosListComponent,
+  canActivate: [AuthGuard]
 }
 
 ];

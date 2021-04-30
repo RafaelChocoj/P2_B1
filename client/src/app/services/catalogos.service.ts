@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,52 @@ export class CatalogosService {
   private URL = 'http://34.66.213.14:3000';
 
   //////////private URL = 'http://192.168.0.100:3000';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   })
 
+  /**************************/
+  Login(user: string, password:string) {
+    const url = this.URL + '/cat/Login';
+
+    return this.http.post(url,
+      {
+        "user": user,
+        "contrasenia": password
+      }
+      , { headers: this.headers })
+      .pipe(map(data => data));
+  }
+
+  Logueado(){
+
+    let userlog = localStorage.getItem('tokenid');
+ 
+
+    if (userlog) {
+      //let userid = JSON.parse(userCurrent);
+      return true;
+    } else {
+      return false;
+    }
+
+    /*return !!localStorage.getItem('tokenid');*/
+
+  }
+
+  CerrarS() {
+    
+    localStorage.removeItem('tokenid');
+
+    location.reload();
+    this.router.navigate(['/login']);
+
+
+  }
+
+  /***********************/
   getPaises() {
     const url = this.URL + '/cat/getPaises';
     return this.http.get(url);

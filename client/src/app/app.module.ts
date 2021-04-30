@@ -29,6 +29,7 @@ import { PreguntasListComponent } from './components/preguntas-list/preguntas-li
 import { PreguntasEditComponent } from './components/preguntas-edit/preguntas-edit.component';
 import { InventosListComponent } from './components/inventos-list/inventos-list.component';
 import { InventosEditComponent } from './components/inventos-edit/inventos-edit.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { InventosEditComponent } from './components/inventos-edit/inventos-edit.
     PreguntasListComponent,
     PreguntasEditComponent,
     InventosListComponent,
-    InventosEditComponent
+    InventosEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

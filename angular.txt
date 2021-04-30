@@ -14,6 +14,8 @@ ng g c components/preguntas-edit
 ng g c components/inventos-list
 ng g c components/inventos-edit
 
+ng g c components/login
+
 ng g s services/reportes
 ng g s services/catalogos
 

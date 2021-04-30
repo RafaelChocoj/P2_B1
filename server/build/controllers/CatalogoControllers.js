@@ -356,6 +356,19 @@ class catalogController {
             }
         });
     }
+    loguin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { user, contrasenia } = req.body;
+            if (user == "admin" && contrasenia == "admin") {
+                const tokenid = "admin";
+                console.log("correcto");
+                res.status(200).json({ tokenid });
+            }
+            else {
+                res.status(404).json("Usuario o Contraseña incorrecta");
+            }
+        });
+    }
     listpregun(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             var sql = "SELECT Pregunta.idPregunta, CONCAT(SUBSTRING(Pregunta.Pregunta, 1,81),'...') as Pregunta,\

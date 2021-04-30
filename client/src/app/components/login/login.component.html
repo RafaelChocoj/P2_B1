@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                Iniciar
+            </div>
+            <div class="card-body">
+                <form (submit)="LogIn()">
+
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="user" name="user" class="form-control" placeholder="user" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+
+                    <button class="btn btn-primary btn-block">
+                        Iniciar Sesión
+                    </button>
+                </form>
+            </div>
+
+             <!-- ------------
+            <div class="form-group ml-auto">
+                <button class="btn btn-link" data-toggle="modal" data-target="#staticBackdrop">¿Olvidaste tu contraseña?</button>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+
+

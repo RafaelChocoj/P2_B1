@@ -109,15 +109,15 @@
     <ul class="navbar-nav ml-auto">
 
 
-      <!--  <ng-container *ngIf="!authService.Logueado(); else salirs">
+        <ng-container *ngIf="!authService.Logueado(); else salirs">
 
         <li class="nav-item">
           <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
         </li>
-        <li class="nav-item">
+         <!--<li class="nav-item">
           <a class="nav-link" routerLink="/signup" routerLinkActive="active">New Acount</a>
-        </li>
-      </ng-container>-->
+        </li>-->
+      </ng-container>
 
       <ng-template #salirs>
 
@@ -125,11 +125,11 @@
           Carrito  <span class="blue">{{products.cant}}</span>
           <i class="fas fa-shopping-cart">
           </i>
-      </button>
+      </button>-->
 
         <li class="nav-item">
           <a class="nav-link" style="cursor: pointer;" (click)="authService.CerrarS()">Cerrar Sesión</a>
-        </li>-->
+        </li>
       </ng-template>
      
     </ul>

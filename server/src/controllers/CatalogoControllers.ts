@@ -343,6 +343,20 @@ class catalogController {
          }
    }
 
+   public async loguin(req: Request, res: Response): Promise<any> {
+    const { user,contrasenia } = req.body;
+    
+    if (user == "admin" && contrasenia=="admin"){
+
+      const tokenid = "admin"
+      console.log("correcto")
+      res.status(200).json({tokenid});
+    } else {
+      res.status(404).json("Usuario o Contraseña incorrecta");
+
+    }
+ }
+
    public async listpregun(req: Request, res: Response): Promise<any> {
     var sql = "SELECT Pregunta.idPregunta, CONCAT(SUBSTRING(Pregunta.Pregunta, 1,81),'...') as Pregunta,\
     Pregunta.idEncuesta, Encuesta.Nombre \
