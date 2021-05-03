@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class ReportesService {
 
   //private URL = 'http://localhost:3000';
-  private URL = 'http://34.66.213.14:3000';
+  private URL = 'http://35.225.107.238:3000';
 
   constructor(private http: HttpClient) { }
 

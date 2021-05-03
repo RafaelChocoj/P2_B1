@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class CatalogosService {
 
   //private URL = 'http://localhost:3000';
-  private URL = 'http://34.66.213.14:3000';
+  private URL = 'http://35.225.107.238:3000';
 
   //////////private URL = 'http://192.168.0.100:3000';
   constructor(private http: HttpClient, private router: Router) { }
